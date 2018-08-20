@@ -9,6 +9,8 @@ unsigned long currentMillis;
 
 void setupDelayAsync(int timespanSeconds) {
   interval = 1000ul * timespanSeconds;
+  Serial.print("Delay set to: ");
+  Serial.println(interval);
 }
 
 bool delayCheck()
