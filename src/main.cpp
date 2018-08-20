@@ -24,7 +24,6 @@ void setup()
   setupLightIntensity();
   setupReceiveData();
 
-
   readAllSensors();
 
   setupEthernet();
@@ -45,10 +44,21 @@ void loop()
   loopEthernet();
 }
 
-
+char transmissionMessage[50];
+unsigned int messageIndex;
 void readAllSensors() {
     readBMP();
     readDHT();
     readLightIntensity();
+
+    // multiply the readings by factor 100 so we can just send the int.
+    // node name, message index, primary temp, humidity, light intensity, voltage if any, secondary temp, air pressure
+    sprintf(transmissionMessage, "%s|%i|%i|%i|%i|%i|%i|%lu", 
+      NODE_HASH, messageIndex++, (int)(dhtTemp * 100), (int)(dhtHum * 100), lightIntensity,
+      -1, (int)(bmpTemperature * 100), (unsigned long)(bmpPressure * 100));
+
+    Serial.println();
+    Serial.print("Concatenated: ");
+    Serial.println(transmissionMessage);
     Serial.println();
 }
