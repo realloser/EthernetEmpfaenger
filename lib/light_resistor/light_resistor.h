@@ -8,6 +8,6 @@
 extern int inputVoltage;
 extern int lightIntensity; 
 
-void setupLightIntesnity();
+void setupLightIntensity();
 
 void readLightIntensity();

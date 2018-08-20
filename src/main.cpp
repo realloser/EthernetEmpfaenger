@@ -23,7 +23,7 @@ void setup()
   setupBMP();
   setupDHT();
   inputVoltage = 503; // 423 volt on the nano on the breadboard
-  setupLightIntesnity();
+  setupLightIntensity();
   setupReceiveData();
 
 

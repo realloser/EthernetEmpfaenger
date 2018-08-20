@@ -4,7 +4,7 @@ int lightIntensityMeasured; // variable to store the value coming from the senso
 int lightIntensity; 
 int inputVoltage = INPUT_VOLTAGE;
 
-void setupLightIntesnity(){
+void setupLightIntensity(){
   // nothing to do
   lightIntensityMeasured = 0;
   lightIntensity = 0;
