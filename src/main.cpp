@@ -14,8 +14,6 @@
 #include <delayAsync.h>
 #include <ethernetSender.h>
 
-#define RECIVER true
-
 void setup()
 {
   Serial.begin(9600);
