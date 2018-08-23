@@ -25,8 +25,6 @@ void setup()
   setupReceiveData();
 
   readAllSensors();
-
-  setupEthernet();
 }
 
 void readLoop()
@@ -41,7 +39,6 @@ void loop()
 {
   readLoop();
   loopReceiveData();
-  loopEthernet();
 }
 
 char transmissionMessage[50];
