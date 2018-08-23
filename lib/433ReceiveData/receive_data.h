@@ -7,4 +7,4 @@ extern uint8_t receivedMessage[];
 
 void setupReceiveData();
 
-void loopReceiveData();
+bool loopReceiveData();
