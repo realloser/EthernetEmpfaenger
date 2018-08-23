@@ -6,6 +6,6 @@
 extern float bmpTemperature;
 extern float bmpPressure;
 
-void setupBMP();
+bool setupBMP();
 
 void readBMP();
