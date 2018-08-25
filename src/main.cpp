@@ -26,7 +26,6 @@ void setup()
   setupDelayAsync(2 * 5);
   setupBMP();
   setupDHT();
-  inputVoltage = 503; // 423 volt on the nano on the breadboard
   setupLightIntensity();
   setupReceiveData();
 

@@ -14,7 +14,8 @@ void setupLightIntensity()
 void readLightIntensity()
 {
   lightIntensityMeasured = analogRead(LIGHTSENSOR_PIN);                  // read the value from the sensor
-  lightIntensity = map(lightIntensityMeasured, 0, inputVoltage, 0, 500); // normalize the sensor reading
+  // lightIntensity = map(lightIntensityMeasured, 0, inputVoltage, 0, 500); // normalize the sensor reading
+  lightIntensity = lightIntensityMeasured;
   // Serial.print("Lightintensity = ");
   // Serial.println(lightIntensity);
 }
