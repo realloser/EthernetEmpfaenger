@@ -1,7 +1,17 @@
 
-#define MQTT_CLIENT_ID "UNO_CLIENT"
-#define MQTT_SERVER "black-pearl.local"
+#ifndef MQTT_CLIENT_ID
+#define MQTT_CLIENT_ID "DEFINE_CLIENT_ID"
+#endif
 
-void setupMqttSender();
+#include <Ethernet.h>
 
-bool publishMessage(char *message);
+// Update these with values suitable for your network.
+extern byte mac[];;
+extern IPAddress ip;
+extern IPAddress server;
+
+bool reconnectMQTT();
+
+void publishMQTT(char *message);
+
+void setupMQTT();
