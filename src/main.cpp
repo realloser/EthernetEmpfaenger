@@ -13,6 +13,7 @@
 #include <receive_data.h>
 #include <delayAsync.h>
 
+
 #include <Ethernet.h>
 #include <mqtt.h>
 byte mac[] = {0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED};
@@ -46,7 +47,9 @@ void readLoop()
 void loop()
 {
   readLoop();
-  loopReceiveData();
+  if (loopReceiveData()) {
+    publishMQTT((char*)receivedMessage);
+  }
 }
 
 char transmissionMessage[50];
