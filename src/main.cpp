@@ -13,14 +13,13 @@
 #include <receive_data.h>
 #include <delayAsync.h>
 
-
 #include <Ethernet.h>
 #include <mqtt.h>
 byte mac[] = {0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED};
 IPAddress ip(192, 168, 1, 123);
 IPAddress server(192, 168, 1, 169);
-
-
+// WARNING: Setting the size of the array above ~90 will affect the execution and break the application.
+char transmissionMessage[50];
 void setup()
 {
   Serial.begin(9600);
@@ -47,12 +46,12 @@ void readLoop()
 void loop()
 {
   readLoop();
-  if (loopReceiveData()) {
-    publishMQTT((char*)receivedMessage);
+  if (loopReceiveData())
+  {
+    publishMQTT((char *)receivedMessage);
   }
 }
 
-char transmissionMessage[50];
 unsigned int messageIndex;
 void readAllSensors()
 {
@@ -62,7 +61,9 @@ void readAllSensors()
 
   // multiply the readings by factor 100 so we can just send the int.
   // node name, message index, primary temp, humidity, light intensity, voltage if any, secondary temp, air pressure
+
   sprintf(transmissionMessage, "%s|%i|%i|%i|%i|%i|%i|%lu",
+          // sprintf(transmissionMessage, "{\"node\":\"%s\",\"index\":%i,\"prim_temp\":%i,\"humidity\":%i,\"light\":%i,\"batt\":%i,\"sec_temp\":%i,\"preassure\":%lu}",
           NODE_HASH, messageIndex++, (int)(dhtTemp * 100), (int)(dhtHum * 100), lightIntensity,
           -1, (int)(bmpTemperature * 100), (unsigned long)(bmpPressure * 100));
 
