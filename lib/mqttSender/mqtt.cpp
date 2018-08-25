@@ -39,7 +39,10 @@ void publishMQTT(char *message)
     Serial.print("Publish message: ");
     Serial.println(message);
 
-    client.publish("M18/Environment", message);
+    if (!client.publish("M18/Environment", message))
+    {
+      Serial.println("Failed to publish");
+    }
   }
 }
 
