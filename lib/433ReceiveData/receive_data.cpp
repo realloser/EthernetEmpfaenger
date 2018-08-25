@@ -29,27 +29,9 @@ bool loopReceiveData()
     Serial.println("Received data");
 
     digitalWrite(led_pin, HIGH); // Flash a light to show received good message
-    // Message with a good checksum received, print it.
-    // Serial.print("Got: ");
-    // int i;
-    // for (i = 0; i < buflen; i++)
-    // {
-    //   Serial.print(receivedMessage[i], HEX);
-    //   Serial.print(' ');
-    // }
-    // Serial.println();
 
-    // for (i = 0; i < buflen; i++)
-    // {
-    //   if (receivedMessage[i] == '\0')
-    //   {
-    //     break;
-    //   }
-    //   Serial.print((char)receivedMessage[i]);
-    // }
-    // Serial.println();
-
-    Serial.println((char*)receivedMessage);
+    Serial.print("Received: ");
+    Serial.println((char *)receivedMessage);
     digitalWrite(led_pin, LOW);
     return true;
   }
