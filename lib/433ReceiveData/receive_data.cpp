@@ -26,7 +26,7 @@ bool loopReceiveData()
 {
   if (vw_get_message(receivedMessage, &buflen)) // Non-blocking
   {
-    
+    Serial.println("Received data");
 
     digitalWrite(led_pin, HIGH); // Flash a light to show received good message
     // Message with a good checksum received, print it.
@@ -49,6 +49,7 @@ bool loopReceiveData()
     // }
     // Serial.println();
 
+    Serial.println((char*)receivedMessage);
     digitalWrite(led_pin, LOW);
     return true;
   }
