@@ -23,7 +23,7 @@ char transmissionMessage[50];
 void setup()
 {
   Serial.begin(9600);
-  setupDelayAsync(2 * 5);
+  setupDelayAsync(2 * 60);
   setupBMP();
   setupDHT();
   setupLightIntensity();
